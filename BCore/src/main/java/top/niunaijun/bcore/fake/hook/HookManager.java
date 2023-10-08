@@ -39,6 +39,7 @@ import top.niunaijun.bcore.fake.service.IPersistentDataBlockServiceProxy;
 import top.niunaijun.bcore.fake.service.IPhoneSubInfoProxy;
 import top.niunaijun.bcore.fake.service.IPowerManagerProxy;
 import top.niunaijun.bcore.fake.service.IRoleManagerProxy;
+import top.niunaijun.bcore.fake.service.ISearchManagerProxy;
 import top.niunaijun.bcore.fake.service.IShortcutManagerProxy;
 import top.niunaijun.bcore.fake.service.IStorageManagerProxy;
 import top.niunaijun.bcore.fake.service.IStorageStatsManagerProxy;
@@ -106,6 +107,7 @@ public class HookManager {
             addInjector(new ITelephonyRegistryProxy());
             addInjector(new IDevicePolicyManagerProxy());
             addInjector(new IAccountManagerProxy());
+            addInjector(new ISearchManagerProxy());
             addInjector(new IConnectivityManagerProxy());
             addInjector(new IPhoneSubInfoProxy());
             addInjector(new IMediaRouterServiceProxy());
