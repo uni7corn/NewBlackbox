@@ -20,8 +20,8 @@ ext {
     ndkVersion = '25.1.8937393'
     cmakeVersion = '3.22.1'
 
-    versionName = '1.8.0'
-    versionCode = 9
+    versionName = '2.4.0'
+    versionCode = 11
     useASAN = false
     blackReflection = '1.1.4'
     hiddenApiBypass = '4.3'

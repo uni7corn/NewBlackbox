@@ -4,11 +4,18 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+
+import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedHelpers;
+import top.niunaijun.bcore.BlackBoxCore;
 
 public class AppLifecycleCallback implements Application.ActivityLifecycleCallbacks {
     public void beforeCreateApplication(String packageName, String processName, Context context, int userId) { }
 
-    public void beforeApplicationOnCreate(String packageName, String processName, Application application, int userId) { }
+    public void beforeApplicationOnCreate(String packageName, String processName, Application application, int userId) {
+
+    }
 
     public void afterApplicationOnCreate(String packageName, String processName, Application application, int userId) { }
 
