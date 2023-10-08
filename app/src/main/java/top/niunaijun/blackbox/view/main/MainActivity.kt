@@ -150,7 +150,7 @@ class MainActivity : LoadingActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.main_git -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/BlackBoxing/BlackBox"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Monster-GM/NewBlackbox"))
                 startActivity(intent)
             }
 
@@ -159,7 +159,7 @@ class MainActivity : LoadingActivity() {
             }
 
             R.id.main_tg -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/blackboxing"))
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/NewBlackbox"))
                 startActivity(intent)
             }
 

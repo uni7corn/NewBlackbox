@@ -38,6 +38,7 @@ import top.niunaijun.bcore.fake.service.IPermissionManagerProxy;
 import top.niunaijun.bcore.fake.service.IPersistentDataBlockServiceProxy;
 import top.niunaijun.bcore.fake.service.IPhoneSubInfoProxy;
 import top.niunaijun.bcore.fake.service.IPowerManagerProxy;
+import top.niunaijun.bcore.fake.service.IRoleManagerProxy;
 import top.niunaijun.bcore.fake.service.IShortcutManagerProxy;
 import top.niunaijun.bcore.fake.service.IStorageManagerProxy;
 import top.niunaijun.bcore.fake.service.IStorageStatsManagerProxy;
@@ -125,6 +126,7 @@ public class HookManager {
             }
             // 10.0
             if (BuildCompat.isQ()) {
+                addInjector(new IRoleManagerProxy());
                 addInjector(new IActivityTaskManagerProxy());
             }
             // 9.0
