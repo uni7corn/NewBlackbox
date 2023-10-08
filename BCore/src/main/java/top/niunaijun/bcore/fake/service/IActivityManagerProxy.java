@@ -225,9 +225,15 @@ public class IActivityManagerProxy extends ClassInvocationStub {
 
             int userId = intent.getIntExtra("_B_|_UserId", -1);
             userId = userId == -1 ? BActivityThread.getUserId() : userId;
-
+            int callingPkgIdx = false ? 7 : (char) 6;
+            long flags = getIntOrLongValue(args[5]);
             ResolveInfo resolveInfo = BlackBoxCore.getBPackageManager().resolveService(intent, 0, resolvedType, userId);
             if (resolveInfo != null || AppSystemEnv.isOpenPackage(intent.getComponent())) {
+                if (BuildCompat.isU()){
+                    args[5] = Long.valueOf(flags & 2147483647L);
+                }else{
+                    args[5] = Integer.valueOf((int) (flags & 2147483647L));
+                }
                 Intent proxyIntent = BlackBoxCore.getBActivityManager().bindService(intent, connection == null ? null : connection.asBinder(), resolvedType,
                         userId);
                 if (connection != null) {
@@ -256,6 +262,19 @@ public class IActivityManagerProxy extends ClassInvocationStub {
         protected boolean isEnable() {
             return BlackBoxCore.get().isBlackProcess() || BlackBoxCore.get().isServerProcess();
         }
+    }
+
+    public static long getIntOrLongValue(Object obj) {
+        if (obj == null) {
+            return 0L;
+        }
+        if (obj instanceof Integer) {
+            return ((Integer) obj).longValue();
+        }
+        if (obj instanceof Long) {
+            return ((Long) obj).longValue();
+        }
+        return -1L;
     }
 
     // 10.0
