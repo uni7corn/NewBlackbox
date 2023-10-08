@@ -5,6 +5,11 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
 
+import black.oem.vivo.IPhysicalFlingManager;
+import black.oem.vivo.IPopupCameraManager;
+import black.oem.vivo.ISuperResolutionManager;
+import black.oem.vivo.ISystemDefenceManager;
+import black.oem.vivo.IVivoPermissonService;
 import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.fake.delegate.AppInstrumentation;
 import top.niunaijun.bcore.fake.service.BuildProxy;
@@ -37,6 +42,8 @@ import top.niunaijun.bcore.fake.service.IPackageManagerProxy;
 import top.niunaijun.bcore.fake.service.IPermissionManagerProxy;
 import top.niunaijun.bcore.fake.service.IPersistentDataBlockServiceProxy;
 import top.niunaijun.bcore.fake.service.IPhoneSubInfoProxy;
+import top.niunaijun.bcore.fake.service.IPhysicalFlingManagerProxy;
+import top.niunaijun.bcore.fake.service.IPopupCameraManagerProxy;
 import top.niunaijun.bcore.fake.service.IPowerManagerProxy;
 import top.niunaijun.bcore.fake.service.IRoleManagerProxy;
 import top.niunaijun.bcore.fake.service.ISearchManagerProxy;
@@ -44,11 +51,14 @@ import top.niunaijun.bcore.fake.service.IShortcutManagerProxy;
 import top.niunaijun.bcore.fake.service.IStorageManagerProxy;
 import top.niunaijun.bcore.fake.service.IStorageStatsManagerProxy;
 import top.niunaijun.bcore.fake.service.ISubProxy;
+import top.niunaijun.bcore.fake.service.ISuperResolutionManagerProxy;
+import top.niunaijun.bcore.fake.service.ISystemDefenceManagerProxy;
 import top.niunaijun.bcore.fake.service.ISystemUpdateProxy;
 import top.niunaijun.bcore.fake.service.ITelephonyManagerProxy;
 import top.niunaijun.bcore.fake.service.ITelephonyRegistryProxy;
 import top.niunaijun.bcore.fake.service.IUserManagerProxy;
 import top.niunaijun.bcore.fake.service.IVibratorServiceProxy;
+import top.niunaijun.bcore.fake.service.IVivoPermissionServiceProxy;
 import top.niunaijun.bcore.fake.service.IVpnManagerProxy;
 import top.niunaijun.bcore.fake.service.IWifiManagerProxy;
 import top.niunaijun.bcore.fake.service.IWifiScannerProxy;
@@ -155,6 +165,22 @@ public class HookManager {
             // 5.0
             if (BuildCompat.isL()) {
                 addInjector(new IJobServiceProxy());
+            }
+            //fix vivo framework service
+            if (IPhysicalFlingManager.TYPE != null){
+                addInjector(new IPhysicalFlingManagerProxy());
+            }
+            if (IPopupCameraManager.TYPE != null) {
+                addInjector(new IPopupCameraManagerProxy());
+            }
+            if (ISuperResolutionManager.TYPE != null) {
+                addInjector(new ISuperResolutionManagerProxy());
+            }
+            if (ISystemDefenceManager.TYPE != null) {
+                addInjector(new ISystemDefenceManagerProxy());
+            }
+            if (IVivoPermissonService.TYPE != null) {
+                addInjector(new IVivoPermissionServiceProxy());
             }
         }
         injectAll();
