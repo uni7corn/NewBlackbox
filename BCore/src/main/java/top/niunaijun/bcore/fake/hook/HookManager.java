@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
 
+import black.oem.flyme.IFlymePermissionService;
 import black.oem.vivo.IPhysicalFlingManager;
 import black.oem.vivo.IPopupCameraManager;
 import black.oem.vivo.ISuperResolutionManager;
@@ -30,6 +31,7 @@ import top.niunaijun.bcore.fake.service.IDeviceIdentifiersPolicyProxy;
 import top.niunaijun.bcore.fake.service.IDevicePolicyManagerProxy;
 import top.niunaijun.bcore.fake.service.IDisplayManagerProxy;
 import top.niunaijun.bcore.fake.service.IFingerprintManagerProxy;
+import top.niunaijun.bcore.fake.service.IFlymePermissionServiceProxy;
 import top.niunaijun.bcore.fake.service.IGraphicsStatsProxy;
 import top.niunaijun.bcore.fake.service.IJobServiceProxy;
 import top.niunaijun.bcore.fake.service.ILauncherAppsProxy;
@@ -144,6 +146,10 @@ public class HookManager {
             // 9.0
             if (BuildCompat.isPie()) {
                 addInjector(new ISystemUpdateProxy());
+            }
+            //fix flyme service
+            if (IFlymePermissionService.TYPE != null) {
+                addInjector(new IFlymePermissionServiceProxy());
             }
             // 8.0
             if (BuildCompat.isOreo()) {

@@ -1,6 +1,7 @@
 package top.niunaijun.bcore.core.env;
 
 import android.content.ComponentName;
+import android.os.Build;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,11 @@ public class AppSystemEnv {
         sSuPackages.add("com.yellowes.su");
 
         sXposedPackages.add("de.robv.android.xposed.installer");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Build.VERSION.SDK_INT < 29){
+            //解决Android 9三星浏览器闪退问题
+        }else{
+
+        }
     }
 
     public static boolean isOpenPackage(String packageName) {
