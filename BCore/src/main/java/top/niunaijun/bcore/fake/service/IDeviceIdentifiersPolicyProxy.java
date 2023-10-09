@@ -8,6 +8,7 @@ import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.fake.hook.BinderInvocationStub;
 import top.niunaijun.bcore.fake.hook.MethodHook;
 import top.niunaijun.bcore.fake.hook.ProxyMethod;
+import top.niunaijun.bcore.fake.service.base.PkgMethodProxy;
 import top.niunaijun.bcore.utils.Md5Utils;
 
 public class IDeviceIdentifiersPolicyProxy extends BinderInvocationStub {
@@ -23,6 +24,7 @@ public class IDeviceIdentifiersPolicyProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService("device_identifiers");
+        addMethodHook(new PkgMethodProxy("getSerialForPackage"));
     }
 
     @Override

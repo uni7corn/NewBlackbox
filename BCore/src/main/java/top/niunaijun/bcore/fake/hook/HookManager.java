@@ -140,6 +140,7 @@ public class HookManager {
             }
             // 10.0
             if (BuildCompat.isQ()) {
+                addInjector(new IDeviceIdentifiersPolicyProxy());
                 addInjector(new IRoleManagerProxy());
                 addInjector(new IActivityTaskManagerProxy());
             }
@@ -154,7 +155,6 @@ public class HookManager {
             // 8.0
             if (BuildCompat.isOreo()) {
                 addInjector(new IAutofillManagerProxy());
-                addInjector(new IDeviceIdentifiersPolicyProxy());
                 addInjector(new IStorageStatsManagerProxy());
             }
             // 7.0
