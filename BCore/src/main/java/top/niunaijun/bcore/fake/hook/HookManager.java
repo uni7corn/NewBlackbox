@@ -173,21 +173,21 @@ public class HookManager {
                 addInjector(new IJobServiceProxy());
             }
             //fix vivo framework service
-            if (IPhysicalFlingManager.TYPE != null){
-                addInjector(new IPhysicalFlingManagerProxy());
-            }
-            if (IPopupCameraManager.TYPE != null) {
-                addInjector(new IPopupCameraManagerProxy());
-            }
-            if (ISuperResolutionManager.TYPE != null) {
-                addInjector(new ISuperResolutionManagerProxy());
-            }
-            if (ISystemDefenceManager.TYPE != null) {
-                addInjector(new ISystemDefenceManagerProxy());
-            }
-            if (IVivoPermissonService.TYPE != null) {
-                addInjector(new IVivoPermissionServiceProxy());
-            }
+//            if (IPhysicalFlingManager.TYPE != null){
+//                addInjector(new IPhysicalFlingManagerProxy());
+//            }
+//            if (IPopupCameraManager.TYPE != null) {
+//                addInjector(new IPopupCameraManagerProxy());
+//            }
+//            if (ISuperResolutionManager.TYPE != null) {
+//                addInjector(new ISuperResolutionManagerProxy());
+//            }
+//            if (ISystemDefenceManager.TYPE != null) {
+//                addInjector(new ISystemDefenceManagerProxy());
+//            }
+//            if (IVivoPermissonService.TYPE != null) {
+//                addInjector(new IVivoPermissionServiceProxy());
+//            }
         }
         injectAll();
     }
