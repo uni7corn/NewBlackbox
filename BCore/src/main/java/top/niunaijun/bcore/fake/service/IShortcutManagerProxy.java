@@ -3,12 +3,16 @@ package top.niunaijun.bcore.fake.service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import black.android.content.pm.IShortcutService;
 import black.android.os.ServiceManager;
+import black.com.android.internal.infra.AndroidFuture;
 import top.niunaijun.bcore.fake.hook.BinderInvocationStub;
 import top.niunaijun.bcore.fake.hook.MethodHook;
 import top.niunaijun.bcore.fake.hook.ProxyMethod;
@@ -58,6 +62,10 @@ public class IShortcutManagerProxy extends BinderInvocationStub {
         addMethodHook(new PkgMethodProxy("removeAllDynamicShortcuts"));
         addMethodHook(new PkgMethodProxy("removeDynamicShortcuts"));
         addMethodHook(new PkgMethodProxy("removeLongLivedShortcuts"));
+        addMethodHook(new WrapperShortcutInfo("pushDynamicShortcut", 1,  null));
+        addMethodHook(new WrapperShortcutInfo("requestPinShortcut", 1,  false));
+        addMethodHook(new WrapperShortcutInfo("addDynamicShortcuts", 1,  false));
+        addMethodHook(new WrapperShortcutInfo("setDynamicShortcuts", 1,  false));
         addMethodHook(new PkgMethodProxy("getManifestShortcuts") {
 
             @Override
@@ -66,6 +74,40 @@ public class IShortcutManagerProxy extends BinderInvocationStub {
             }
         });
     }
+
+    static class WrapperShortcutInfo extends MethodHook{
+        private int infoIndex;
+        private Object defValue;
+        private String MethodName;
+
+        public WrapperShortcutInfo(String name,int infoIndex, Object defValue) {
+            this.infoIndex = infoIndex;
+            this.defValue = defValue;
+            this.MethodName = name;
+        }
+
+
+        @Override
+        protected String getMethodName() {
+            return MethodName;
+        }
+
+        private Object wrapperResult(Method method,Object result) {
+            if (!method.toString().contains("AndroidFuture")) {
+                return result;
+            }
+            Object ret = AndroidFuture.ctor.newInstance();
+            AndroidFuture.complete.call(ret, result);
+            return ret;
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.N_MR1)
+        @Override
+        protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            return wrapperResult(method,defValue);
+        }
+    }
+
 
     @ProxyMethod("requestPinShortcut")
     public static class RequestPinShortcut extends MethodHook {
