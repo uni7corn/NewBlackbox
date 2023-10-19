@@ -29,6 +29,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
 
+import java.lang.reflect.Field;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -332,10 +333,21 @@ public class BActivityThread extends IBActivityThread.Stub {
             ContextCompat.fix((Context) ActivityThread.getSystemContext.call(BlackBoxCore.mainThread()));
             ContextCompat.fix(mInitialApplication);
             installProviders(mInitialApplication, bindData.processName, bindData.providers);
-
+            //fix wechat
+            if (Build.VERSION.SDK_INT >= 24 && "com.tencent.mm:recovery".equals(processName)) {
+                try {
+                    Field field = application.getClassLoader().loadClass("com.tencent.recovery.Recovery").getField("context");
+                    field.setAccessible(true);
+                    if (field.get(null) != null) {
+                        return;
+                    }
+                    field.set(null, application.getBaseContext());
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
             onBeforeApplicationOnCreate(packageName, processName, application);
             AppInstrumentation.get().callApplicationOnCreate(application);
-
             onAfterApplicationOnCreate(packageName, processName, application);
             HookManager.get().checkEnv(HCallbackProxy.class);
         } catch (Exception e) {
