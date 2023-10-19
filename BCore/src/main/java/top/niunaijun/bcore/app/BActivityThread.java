@@ -51,6 +51,7 @@ import de.robv.android.xposed.XposedInit;
 import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.app.configuration.AppLifecycleCallback;
 import top.niunaijun.bcore.app.dispatcher.AppServiceDispatcher;
+import top.niunaijun.bcore.arthook.ArtHookInit;
 import top.niunaijun.bcore.core.CrashHandler;
 import top.niunaijun.bcore.core.IBActivityThread;
 import top.niunaijun.bcore.core.IOCore;
@@ -322,7 +323,6 @@ public class BActivityThread extends IBActivityThread.Stub {
         // SSL适配
         Security.removeProvider("AndroidNSSP");
         NetworkSecurityConfigProvider.install.call(packageContext);
-
         Application application;
         try {
             onBeforeCreateApplication(packageName, processName, packageContext);
@@ -346,6 +346,8 @@ public class BActivityThread extends IBActivityThread.Stub {
                     e.printStackTrace();
                 }
             }
+            ArtHookInit.hookAll(application);
+            ArtHookInit.init(packageName);
             onBeforeApplicationOnCreate(packageName, processName, application);
             AppInstrumentation.get().callApplicationOnCreate(application);
             onAfterApplicationOnCreate(packageName, processName, application);

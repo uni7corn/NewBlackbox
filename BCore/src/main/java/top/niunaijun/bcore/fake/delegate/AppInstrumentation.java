@@ -6,13 +6,17 @@ import android.app.Instrumentation;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 
 import java.lang.reflect.Field;
 
+import black.Reflector;
 import black.android.app.ActivityThread;
+import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.XposedHelpers;
 import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.app.BActivityThread;
 import top.niunaijun.bcore.fake.hook.HookManager;
@@ -21,6 +25,7 @@ import top.niunaijun.bcore.fake.service.HCallbackProxy;
 import top.niunaijun.bcore.fake.service.IActivityClientProxy;
 import top.niunaijun.bcore.utils.compat.ActivityCompat;
 import top.niunaijun.bcore.utils.compat.ActivityManagerCompat;
+import top.niunaijun.bcore.utils.compat.BuildCompat;
 import top.niunaijun.bcore.utils.compat.ContextCompat;
 
 public final class AppInstrumentation extends BaseInstrumentationDelegate implements IInjectHook {
@@ -113,6 +118,7 @@ public final class AppInstrumentation extends BaseInstrumentationDelegate implem
     public Application newApplication(ClassLoader cl, String className, Context context) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         ContextCompat.fix(context);
         BActivityThread.currentActivityThread().loadXposed(context);
+        XposedHelpers.findAndHookMethod()
         return super.newApplication(cl, className, context);
     }
 
