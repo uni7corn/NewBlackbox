@@ -13,6 +13,8 @@ import top.niunaijun.bcore.app.BActivityThread;
 import top.niunaijun.bcore.fake.hook.BinderInvocationStub;
 import top.niunaijun.bcore.fake.hook.MethodHook;
 import top.niunaijun.bcore.fake.hook.ProxyMethod;
+import top.niunaijun.bcore.fake.service.base.PkgMethodProxy;
+import top.niunaijun.bcore.fake.service.base.ValueMethodProxy;
 
 public class IUserManagerProxy extends BinderInvocationStub {
     public IUserManagerProxy() {
@@ -27,6 +29,16 @@ public class IUserManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService(Context.USER_SERVICE);
+        addMethodHook(new GetApplicationRestrictions());
+        addMethodHook(new GetProfileParent());
+        addMethodHook(new GetUsers());
+        addMethodHook(new ValueMethodProxy("getProfileParent",null));
+        addMethodHook(new ValueMethodProxy("getUserIcon",null));
+        addMethodHook(new ValueMethodProxy("getDefaultGuestRestrictions",null));
+        addMethodHook(new ValueMethodProxy("setDefaultGuestRestrictions",null));
+        addMethodHook(new ValueMethodProxy("removeRestrictions",null));
+        addMethodHook(new ValueMethodProxy("createUser",null));
+        addMethodHook(new ValueMethodProxy("createProfileForUser",null));
     }
 
     @Override
