@@ -44,6 +44,11 @@ public class IPhoneSubInfoProxy extends BinderInvocationStub {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Log.e(TAG, "Test");
         MethodParameterUtils.replaceLastAppPkg(args);
+        addMethodHook(new GetSubscriberId());
+        addMethodHook(new GetLine1NumberForSubscriber());
+        addMethodHook(new GetSubscriberIdForSubscriber());
+        addMethodHook(new GetIccSerialNumber());
+        addMethodHook(new GetIccSerialNumberForSubscriber());
         addMethodHook(new PkgMethodProxy("getNaiForSubscriber"));
         addMethodHook(new PkgMethodProxy("getDeviceSvn"));
         addMethodHook(new PkgMethodProxy("getDeviceSvnUsingSubId"));
