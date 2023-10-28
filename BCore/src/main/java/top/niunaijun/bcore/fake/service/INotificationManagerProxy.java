@@ -37,17 +37,7 @@ public class INotificationManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         NotificationManager.sService.set(getProxyInvocation());
-        replaceSystemService(Context.NOTIFICATION_SERVICE);
-        addMethodHook(new GetNotificationChannel());
-        addMethodHook(new GetNotificationChannels());
-        addMethodHook(new CancelNotificationWithTag());
-        addMethodHook(new EnqueueNotificationWithTag());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            addMethodHook(new CreateNotificationChannels());
-            addMethodHook(new DeleteNotificationChannelGroup());
-        }
-        addMethodHook(new DeleteNotificationChannel());
-        addMethodHook(new GetNotificationChannelGroups());
+
     }
 
     @Override
@@ -59,6 +49,22 @@ public class INotificationManagerProxy extends BinderInvocationStub {
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        replaceSystemService(Context.NOTIFICATION_SERVICE);
+        addMethodHook(new GetNotificationChannel());
+        addMethodHook(new GetNotificationChannels());
+        addMethodHook(new CancelNotificationWithTag());
+        addMethodHook(new EnqueueNotificationWithTag());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            addMethodHook(new CreateNotificationChannels());
+            addMethodHook(new DeleteNotificationChannelGroup());
+        }
+        addMethodHook(new DeleteNotificationChannel());
+        addMethodHook(new GetNotificationChannelGroups());
+        addMethodHook(new CreateNotificationChannelGroups());
     }
 
     @ProxyMethod("getNotificationChannel")

@@ -33,11 +33,17 @@ public class IActivityTaskManagerProxy extends BinderInvocationStub {
 
         Object o = ActivityTaskManager.IActivityTaskManagerSingleton.get();
         Singleton.mInstance.set(o, IActivityTaskManager.Stub.asInterface.call(this));
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new SetTaskDescription());
     }
 
     // for >= Android 10 && < Android 12

@@ -25,6 +25,16 @@ public class IVivoPermissionServiceProxy extends BinderInvocationStub {
 
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
+        replaceSystemService("vivo_permission_service");
+    }
+
+    @Override
+    public boolean isBadEnv() {
+        return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("checkPermission"));
         addMethodHook(new PkgMethodProxy("getAppPermission"));
         addMethodHook(new PkgMethodProxy("setAppPermission"));
@@ -32,10 +42,5 @@ public class IVivoPermissionServiceProxy extends BinderInvocationStub {
         addMethodHook(new PkgMethodProxy("setBlackListApp"));
         addMethodHook(new PkgMethodProxy("noteStartActivityProcess"));
         addMethodHook(new PkgMethodProxy("isBuildInThirdPartApp"));
-    }
-
-    @Override
-    public boolean isBadEnv() {
-        return false;
     }
 }

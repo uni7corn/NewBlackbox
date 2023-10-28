@@ -28,11 +28,17 @@ public class IAutofillManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService("autofill");
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new StartSession());
     }
 
     @ProxyMethod("startSession")

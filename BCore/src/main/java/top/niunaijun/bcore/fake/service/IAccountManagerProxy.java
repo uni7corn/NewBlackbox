@@ -34,7 +34,40 @@ public class IAccountManagerProxy extends BinderInvocationStub {
 
     @Override
     protected void onBindMethod() {
-        super.onBindMethod();
+        addMethodHook(new GetUserData());
+        addMethodHook(new GetAuthenticatorTypes());
+        addMethodHook(new GetAccountVisibility());
+        addMethodHook(new GetAccountsForPackage());
+        addMethodHook(new GetAccountsByTypeForPackage());
+        addMethodHook(new GetAccountByTypeAndFeatures());
+        addMethodHook(new GetAccountsByFeatures());
+        addMethodHook(new GetAccountsAsUser());
+        addMethodHook(new AddAccountExplicitly());
+        addMethodHook(new RemoveAccountAsUser());
+        addMethodHook(new RemoveAccountExplicitly());
+        addMethodHook(new CopyAccountToUser());
+        addMethodHook(new InvalidateAuthToken());
+        addMethodHook(new GetPassword());
+        addMethodHook(new PeekAuthToken());
+        addMethodHook(new SetAuthToken());
+        addMethodHook(new SetPassword());
+        addMethodHook(new ClearPassword());
+        addMethodHook(new SetUserData());
+        addMethodHook(new UpdateAppPermission());
+        addMethodHook(new GetAuthToken());
+        addMethodHook(new AddAccount());
+        addMethodHook(new AddAccountAsUser());
+        addMethodHook(new UpdateCredentials());
+        addMethodHook(new EditProperties());
+        addMethodHook(new ConfirmCredentialsAsUser());
+        addMethodHook(new AccountAuthenticated());
+        addMethodHook(new GetAuthTokenLabel());
+        addMethodHook(new GetPackagesAndVisibilityForAccount());
+        addMethodHook(new AddAccountExplicitlyWithVisibility());
+        addMethodHook(new SetAccountVisibility());
+        addMethodHook(new GetAccountsAndVisibilityForPackage());
+        addMethodHook(new RegisterAccountListener());
+        addMethodHook(new UnregisterAccountListener());
     }
 
     @Override

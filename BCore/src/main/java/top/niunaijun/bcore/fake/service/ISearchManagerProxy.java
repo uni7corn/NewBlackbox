@@ -33,6 +33,11 @@ public class ISearchManagerProxy extends BinderInvocationStub {
 
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
+        replaceSystemService("search");
+    }
+
+    @Override
+    protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("launchLegacyAssist"));
         addMethodHook(new GetSearchableInfo());
     }

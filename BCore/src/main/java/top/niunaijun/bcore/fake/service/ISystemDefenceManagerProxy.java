@@ -24,6 +24,16 @@ public class ISystemDefenceManagerProxy extends BinderInvocationStub {
 
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
+        replaceSystemService("system_defence_service");
+    }
+
+    @Override
+    public boolean isBadEnv() {
+        return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("checkTransitionTimoutErrorDefence"));
         addMethodHook(new PkgMethodProxy("checkSkipKilledByRemoveTask"));
         addMethodHook(new PkgMethodProxy("checkSmallIconNULLPackage"));
@@ -31,10 +41,5 @@ public class ISystemDefenceManagerProxy extends BinderInvocationStub {
         addMethodHook(new PkgMethodProxy("onSetActivityResumed"));
         addMethodHook(new PkgMethodProxy("checkReinstallPacakge"));
         addMethodHook(new PkgMethodProxy("reportFgCrashData"));
-    }
-
-    @Override
-    public boolean isBadEnv() {
-        return false;
     }
 }

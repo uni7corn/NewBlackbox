@@ -24,11 +24,17 @@ public class IMediaSessionManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService(Context.MEDIA_SESSION_SERVICE);
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new CreateSession());
     }
 
     @ProxyMethod("createSession")

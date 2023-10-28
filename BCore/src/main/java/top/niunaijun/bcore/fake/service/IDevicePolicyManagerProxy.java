@@ -25,11 +25,21 @@ public class IDevicePolicyManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService(Context.DEVICE_POLICY_SERVICE);
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new GetDeviceOwnerName());
+        addMethodHook(new GetStorageEncryptionStatus());
+        addMethodHook(new GetDeviceOwnerComponent());
+        addMethodHook(new GetProfileOwnerName());
+        addMethodHook(new IsDeviceProvisioned());
     }
 
     @ProxyMethod("getStorageEncryptionStatus")

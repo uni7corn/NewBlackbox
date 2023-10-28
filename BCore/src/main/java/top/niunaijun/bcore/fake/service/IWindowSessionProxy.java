@@ -32,6 +32,11 @@ public class IWindowSessionProxy extends BinderInvocationStub {
         return false;
     }
 
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new AddToDisplayAsUser());
+    }
+
     @ProxyMethod("addToDisplay")
     public static class AddToDisplay extends MethodHook {
         @Override

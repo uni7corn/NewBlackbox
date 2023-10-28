@@ -34,6 +34,7 @@ public class IAppOpsManagerProxy extends BinderInvocationStub {
             }
         }
         replaceSystemService(Context.APP_OPS_SERVICE);
+
     }
 
     @Override
@@ -46,6 +47,14 @@ public class IAppOpsManagerProxy extends BinderInvocationStub {
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new NoteOperation());
+        addMethodHook(new CheckPackage());
+        addMethodHook(new CheckOperation());
+        addMethodHook(new NoteProxyOperation());
     }
 
     @ProxyMethod("noteProxyOperation")

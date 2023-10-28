@@ -25,11 +25,16 @@ public class IPopupCameraManagerProxy extends BinderInvocationStub {
 
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
-        addMethodHook(new PkgMethodProxy("notifyCameraStatus"));
+        replaceSystemService("popup_camera_service");
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new PkgMethodProxy("notifyCameraStatus"));
     }
 }

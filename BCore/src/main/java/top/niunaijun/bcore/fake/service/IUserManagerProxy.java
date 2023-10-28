@@ -29,6 +29,15 @@ public class IUserManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService(Context.USER_SERVICE);
+    }
+
+    @Override
+    public boolean isBadEnv() {
+        return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
         addMethodHook(new GetApplicationRestrictions());
         addMethodHook(new GetProfileParent());
         addMethodHook(new GetUsers());
@@ -39,11 +48,6 @@ public class IUserManagerProxy extends BinderInvocationStub {
         addMethodHook(new ValueMethodProxy("removeRestrictions",null));
         addMethodHook(new ValueMethodProxy("createUser",null));
         addMethodHook(new ValueMethodProxy("createProfileForUser",null));
-    }
-
-    @Override
-    public boolean isBadEnv() {
-        return false;
     }
 
     @ProxyMethod("getApplicationRestrictions")

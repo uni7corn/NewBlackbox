@@ -28,6 +28,15 @@ public class IJobServiceProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService(Context.JOB_SCHEDULER_SERVICE);
+
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new Schedule());
+        addMethodHook(new Cancel());
+        addMethodHook(new Enqueue());
+        addMethodHook(new CancelAll());
     }
 
     @ProxyMethod("schedule")

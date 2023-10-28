@@ -28,11 +28,16 @@ public class IRoleManagerProxy extends BinderInvocationStub {
 
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
-        addMethodHook(new PkgMethodProxy("isRoleHeld"));
+        replaceSystemService(Context.ROLE_SERVICE);
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new PkgMethodProxy("isRoleHeld"));
     }
 }

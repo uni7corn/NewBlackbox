@@ -22,6 +22,12 @@ public class IDisplayManagerProxy extends ClassInvocationStub {
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         Object dmg = DisplayManagerGlobal.getInstance.call();
         DisplayManagerGlobal.mDm.set(dmg, getProxyInvocation());
+
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new CreateVirtualDisplay());
     }
 
     @Override

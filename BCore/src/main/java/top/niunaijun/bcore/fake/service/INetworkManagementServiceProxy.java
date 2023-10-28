@@ -37,6 +37,7 @@ public class INetworkManagementServiceProxy extends BinderInvocationStub {
         addMethodHook(new UidMethodProxy("setUidCleartextNetworkPolicy", 0));
         addMethodHook(new UidMethodProxy("setUidMeteredNetworkBlacklist", 0));
         addMethodHook(new UidMethodProxy("setUidMeteredNetworkWhitelist", 0));
+        addMethodHook(new GetNetworkStatsUidDetail());
     }
 
     @ProxyMethod("getNetworkStatsUidDetail")

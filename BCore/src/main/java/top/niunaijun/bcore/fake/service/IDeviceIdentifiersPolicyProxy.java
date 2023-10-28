@@ -24,12 +24,18 @@ public class IDeviceIdentifiersPolicyProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService("device_identifiers");
-        addMethodHook(new PkgMethodProxy("getSerialForPackage"));
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new PkgMethodProxy("getSerialForPackage"));
+        addMethodHook(new GetSerialForPackage());
     }
 
     @ProxyMethod("getSerialForPackage")

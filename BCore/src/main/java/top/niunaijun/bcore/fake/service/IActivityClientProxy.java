@@ -9,6 +9,7 @@ import black.android.app.ActivityClient;
 import black.android.util.Singleton;
 import top.niunaijun.bcore.fake.frameworks.BActivityManager;
 import top.niunaijun.bcore.fake.hook.ClassInvocationStub;
+import top.niunaijun.bcore.fake.hook.HookManager;
 import top.niunaijun.bcore.fake.hook.MethodHook;
 import top.niunaijun.bcore.fake.hook.ProxyMethod;
 import top.niunaijun.bcore.utils.compat.TaskDescriptionCompat;
@@ -37,6 +38,15 @@ public class IActivityClientProxy extends ClassInvocationStub {
         Object instance = ActivityClient.getInstance.call();
         Object singleton = ActivityClient.INTERFACE_SINGLETON.get(instance);
         Singleton.mInstance.set(singleton, proxyInvocation);
+
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new FinishActivity());
+        addMethodHook(new ActivityResumed());
+        addMethodHook(new ActivityDestroyed());
+        addMethodHook(new SetTaskDescription());
     }
 
     @Override

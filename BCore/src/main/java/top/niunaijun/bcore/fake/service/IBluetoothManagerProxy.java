@@ -23,11 +23,17 @@ public class IBluetoothManagerProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService("bluetooth_manager");
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new GetName());
     }
 
     @ProxyMethod("getName")

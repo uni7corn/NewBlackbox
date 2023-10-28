@@ -41,6 +41,12 @@ public class IStorageManagerProxy extends BinderInvocationStub {
         return false;
     }
 
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new GetVolumeList());
+        addMethodHook(new MkDirs());
+    }
+
     @ProxyMethod("getVolumeList")
     public static class GetVolumeList extends MethodHook {
 

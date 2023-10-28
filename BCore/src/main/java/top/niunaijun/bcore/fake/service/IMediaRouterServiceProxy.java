@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 
 import black.android.media.IMediaRouterService;
 import black.android.os.ServiceManager;
+import top.niunaijun.bcore.core.system.accounts.RegisteredServicesParser;
 import top.niunaijun.bcore.fake.hook.BinderInvocationStub;
 import top.niunaijun.bcore.fake.hook.MethodHook;
 import top.niunaijun.bcore.fake.hook.ProxyMethod;
@@ -24,6 +25,7 @@ public class IMediaRouterServiceProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService(Context.MEDIA_ROUTER_SERVICE);
+
     }
 
     @Override
@@ -35,6 +37,12 @@ public class IMediaRouterServiceProxy extends BinderInvocationStub {
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new registerClientAsUser());
+        addMethodHook(new registerRouter2());
     }
 
     @ProxyMethod("registerClientAsUser")

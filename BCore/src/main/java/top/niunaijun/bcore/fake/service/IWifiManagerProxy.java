@@ -37,6 +37,12 @@ public class IWifiManagerProxy extends BinderInvocationStub {
         return false;
     }
 
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new GetConnectionInfo());
+        addMethodHook(new GetScanResults());
+    }
+
     @ProxyMethod("getConnectionInfo")
     public static class GetConnectionInfo extends MethodHook {
         /*

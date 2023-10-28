@@ -22,11 +22,17 @@ public class IGraphicsStatsProxy extends BinderInvocationStub {
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
         replaceSystemService("graphicsstats");
+
     }
 
     @Override
     public boolean isBadEnv() {
         return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
+        addMethodHook(new RequestBufferForProcess());
     }
 
     @ProxyMethod("requestBufferForProcess")

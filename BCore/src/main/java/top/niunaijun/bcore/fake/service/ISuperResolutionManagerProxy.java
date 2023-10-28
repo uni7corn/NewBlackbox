@@ -24,18 +24,26 @@ public class ISuperResolutionManagerProxy extends BinderInvocationStub {
         return ISuperResolutionManager.Stub.asInterface.call(ServiceManager.getService.call("SuperResolutionManager"));
     }
 
+
+
     @Override
     protected void inject(Object baseInvocation, Object proxyInvocation) {
+        replaceSystemService("SuperResolutionManager");
+    }
+
+
+    @Override
+    public boolean isBadEnv() {
+        return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("registerPackageSettingStateChangeListener"));
         addMethodHook(new PkgMethodProxy("unRegisterPackageSettingStateChangeListener"));
         addMethodHook(new PkgMethodProxy("registerSuperResolutionStateChange"));
         addMethodHook(new PkgMethodProxy("unRegisterSuperResolutionStateChange"));
         addMethodHook(new PkgMethodProxy("getPackageSettingState"));
         addMethodHook(new PkgMethodProxy("putPackageSettingState"));
-    }
-
-    @Override
-    public boolean isBadEnv() {
-        return false;
     }
 }
