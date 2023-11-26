@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.util.Log;
@@ -222,10 +223,12 @@ public class IActivityManagerProxy extends ClassInvocationStub {
             Intent intent = (Intent) args[2];
             String resolvedType = (String) args[3];
             IServiceConnection connection = (IServiceConnection) args[4];
-
             int userId = intent.getIntExtra("_B_|_UserId", -1);
             userId = userId == -1 ? BActivityThread.getUserId() : userId;
             int callingPkgIdx = false ? 7 : (char) 6;
+            if (Build.VERSION.SDK_INT >= 23 && args.length >= 8 && (args[callingPkgIdx] instanceof String)) {
+                args[callingPkgIdx] = BlackBoxCore.getHostPkg();
+            }
             long flags = getIntOrLongValue(args[5]);
             ResolveInfo resolveInfo = BlackBoxCore.getBPackageManager().resolveService(intent, 0, resolvedType, userId);
             if (resolveInfo != null || AppSystemEnv.isOpenPackage(intent.getComponent())) {
@@ -255,10 +258,10 @@ public class IActivityManagerProxy extends ClassInvocationStub {
                         return method.invoke(who, args);
                     }
                 }else{
-                    return 0;
+                    return method.invoke(who, args);
                 }
             }
-            return 0;
+            return method.invoke(who, args);
         }
 
         @Override
