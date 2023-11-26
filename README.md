@@ -124,8 +124,8 @@ You can contribute to this project by making pull requests.
 ## Sponsorship
 This project is a free open source project, routine maintenance consumes a lot of time and effort. If you want to speed up the progress or buy the author a cup of coffee.
 
-- BTC: 1HhctWiQ6dBQomKPJjty3P1wL9CuK9eCqM
-- USDT（ERC20）: 0x408336bcaef0c5eb11772024a06079ab2e14e6cd
+- BTC: 1HhctWiQ6dBQomKPJjty3P1wL9CuK9eCqM(牛奶君)
+- USDT（ERC20）: 0xe3e80dba05ba5a06c0d2e0934783f6c711dfa2c9(当前维护项目者)
 
 ## Credits
 - [VirtualApp](https://github.com/asLody/VirtualApp)

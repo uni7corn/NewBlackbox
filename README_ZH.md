@@ -134,8 +134,8 @@
 ## 赞助
 本项目为免费开源项目，日常维护耗费大量精力。如想加快进度或请作者喝杯咖啡。
 
-- BTC: 1HhctWiQ6dBQomKPJjty3P1wL9CuK9eCqM
-- USDT（ERC20）: 0x408336bcaef0c5eb11772024a06079ab2e14e6cd
+- BTC: 1HhctWiQ6dBQomKPJjty3P1wL9CuK9eCqM(牛奶君)
+- USDT（ERC20）: 0xe3e80dba05ba5a06c0d2e0934783f6c711dfa2c9(当前维护项目者)
 
 ## 感谢
 - [VirtualApp](https://github.com/asLody/VirtualApp)
