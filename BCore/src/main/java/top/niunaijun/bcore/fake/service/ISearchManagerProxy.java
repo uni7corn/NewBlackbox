@@ -39,7 +39,6 @@ public class ISearchManagerProxy extends BinderInvocationStub {
     @Override
     protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("launchLegacyAssist"));
-        addMethodHook(new GetSearchableInfo());
     }
 
     private static class GetSearchableInfo extends MethodHook{

@@ -34,8 +34,6 @@ public class IAlarmManagerProxy extends BinderInvocationStub {
     protected void onBindMethod() {
         super.onBindMethod();
         //addMethodHook(new ValueMethodProxy("set", 0));
-        addMethodHook(new Set());
-        addMethodHook(new SetTime());
         addMethodHook(new ValueMethodProxy("setTimeZone",null));
     }
 

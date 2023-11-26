@@ -29,12 +29,6 @@ public class ITelephonyRegistryProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new ListenForSubscriber());
-        addMethodHook(new Listen());
-    }
-
     @ProxyMethod("listenForSubscriber")
     public static class ListenForSubscriber extends MethodHook {
 

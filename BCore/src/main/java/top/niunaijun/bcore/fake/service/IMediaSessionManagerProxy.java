@@ -32,10 +32,6 @@ public class IMediaSessionManagerProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new CreateSession());
-    }
 
     @ProxyMethod("createSession")
     public static class CreateSession extends MethodHook {

@@ -66,24 +66,6 @@ public class IPackageManagerProxy extends BinderInvocationStub {
         super.onBindMethod();
         addMethodHook(new PkgMethodProxy("getPackageUid"));
         addMethodHook(new PkgMethodProxy("canRequestPackageInstalls"));
-        addMethodHook(new ResolveIntent());
-        addMethodHook(new ResolveService());
-        addMethodHook(new GetPackageInfo());
-        addMethodHook(new GetPackagesForUid());
-        addMethodHook(new GetInstalledPackages());
-        addMethodHook(new GetProviderInfo());
-        addMethodHook(new GetReceiverInfo());
-        addMethodHook(new GetActivityInfo());
-        addMethodHook(new GetServiceInfo());
-        addMethodHook(new GetInstalledApplications());
-        addMethodHook(new QueryIntentActivities());
-        addMethodHook(new GetApplicationInfo());
-        addMethodHook(new QueryContentProviders());
-        addMethodHook(new GetInstallerPackageName());
-        addMethodHook(new QueryBroadcastReceivers());
-        addMethodHook(new ResolveContentProvider());
-        addMethodHook(new GetSharedLibraries());
-        addMethodHook(new GetComponentEnabledSetting());
         if (BuildCompat.isOreo()) {
             addMethodHook("getPackageInfoVersioned", new MethodHook() {
                 @Override

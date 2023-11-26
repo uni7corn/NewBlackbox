@@ -49,13 +49,6 @@ public class IAppOpsManagerProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new NoteOperation());
-        addMethodHook(new CheckPackage());
-        addMethodHook(new CheckOperation());
-        addMethodHook(new NoteProxyOperation());
-    }
 
     @ProxyMethod("noteProxyOperation")
     public static class NoteProxyOperation extends MethodHook {

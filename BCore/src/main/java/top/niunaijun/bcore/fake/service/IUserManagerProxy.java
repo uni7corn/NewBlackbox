@@ -38,9 +38,6 @@ public class IUserManagerProxy extends BinderInvocationStub {
 
     @Override
     protected void onBindMethod() {
-        addMethodHook(new GetApplicationRestrictions());
-        addMethodHook(new GetProfileParent());
-        addMethodHook(new GetUsers());
         addMethodHook(new ValueMethodProxy("getProfileParent",null));
         addMethodHook(new ValueMethodProxy("getUserIcon",null));
         addMethodHook(new ValueMethodProxy("getDefaultGuestRestrictions",null));

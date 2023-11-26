@@ -31,13 +31,6 @@ public class IJobServiceProxy extends BinderInvocationStub {
 
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new Schedule());
-        addMethodHook(new Cancel());
-        addMethodHook(new Enqueue());
-        addMethodHook(new CancelAll());
-    }
 
     @ProxyMethod("schedule")
     public static class Schedule extends MethodHook {

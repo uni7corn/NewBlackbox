@@ -42,14 +42,6 @@ public class IActivityClientProxy extends ClassInvocationStub {
     }
 
     @Override
-    protected void onBindMethod() {
-        addMethodHook(new FinishActivity());
-        addMethodHook(new ActivityResumed());
-        addMethodHook(new ActivityDestroyed());
-        addMethodHook(new SetTaskDescription());
-    }
-
-    @Override
     public boolean isBadEnv() {
         return false;
     }

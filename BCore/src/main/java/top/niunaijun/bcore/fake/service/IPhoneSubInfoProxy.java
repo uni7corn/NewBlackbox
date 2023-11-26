@@ -44,11 +44,16 @@ public class IPhoneSubInfoProxy extends BinderInvocationStub {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Log.e(TAG, "Test");
         MethodParameterUtils.replaceLastAppPkg(args);
-        addMethodHook(new GetSubscriberId());
-        addMethodHook(new GetLine1NumberForSubscriber());
-        addMethodHook(new GetSubscriberIdForSubscriber());
-        addMethodHook(new GetIccSerialNumber());
-        addMethodHook(new GetIccSerialNumberForSubscriber());
+        return super.invoke(proxy, method, args);
+    }
+
+    @Override
+    public boolean isBadEnv() {
+        return false;
+    }
+
+    @Override
+    protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("getNaiForSubscriber"));
         addMethodHook(new PkgMethodProxy("getDeviceSvn"));
         addMethodHook(new PkgMethodProxy("getDeviceSvnUsingSubId"));
@@ -63,12 +68,6 @@ public class IPhoneSubInfoProxy extends BinderInvocationStub {
         addMethodHook(new PkgMethodProxy("getVoiceMailAlphaTag"));
         addMethodHook(new PkgMethodProxy("getVoiceMailAlphaTagForSubscriber"));
         addMethodHook(new PkgMethodProxy("getLine1Number"));
-        return super.invoke(proxy, method, args);
-    }
-
-    @Override
-    public boolean isBadEnv() {
-        return false;
     }
 
     @ProxyMethod("getSubscriberId")

@@ -36,10 +36,6 @@ public class IWindowManagerProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new OpenSession());
-    }
 
     @ProxyMethod("openSession")
     public static class OpenSession extends MethodHook {

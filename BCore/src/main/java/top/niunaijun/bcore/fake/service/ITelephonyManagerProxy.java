@@ -38,21 +38,6 @@ public class ITelephonyManagerProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new GetDeviceId());
-        addMethodHook(new GetImeiForSlot());
-        addMethodHook(new GetMeidForSlot());
-        addMethodHook(new IsUserDataEnabled());
-        addMethodHook(new GetLine1NumberForDisplay());
-        addMethodHook(new GetSubscriberId());
-        addMethodHook(new GetDeviceIdWithFeature());
-        addMethodHook(new GetCellLocation());
-        addMethodHook(new GetAllCellInfo());
-        addMethodHook(new GetNetworkOperator());
-        addMethodHook(new GetNetworkTypeForSubscriber());
-        addMethodHook(new GetNeighboringCellInfo());
-    }
 
     @ProxyMethod("getDeviceId")
     public static class GetDeviceId extends MethodHook {

@@ -39,12 +39,6 @@ public class IMediaRouterServiceProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new registerClientAsUser());
-        addMethodHook(new registerRouter2());
-    }
-
     @ProxyMethod("registerClientAsUser")
     public static class registerClientAsUser extends MethodHook {
 

@@ -66,10 +66,6 @@ public class IShortcutManagerProxy extends BinderInvocationStub {
         addMethodHook(new WrapperShortcutInfo("requestPinShortcut", 1,  false));
         addMethodHook(new WrapperShortcutInfo("addDynamicShortcuts", 1,  false));
         addMethodHook(new WrapperShortcutInfo("setDynamicShortcuts", 1,  false));
-        addMethodHook(new RequestPinShortcut());
-        addMethodHook(new SetDynamicShortcuts());
-        addMethodHook(new CreateShortcutResultIntent());
-        addMethodHook(new GetMaxShortcutCountPerActivity());
         addMethodHook(new PkgMethodProxy("getManifestShortcuts") {
 
             @Override

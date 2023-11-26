@@ -30,10 +30,6 @@ public class IGraphicsStatsProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new RequestBufferForProcess());
-    }
 
     @ProxyMethod("requestBufferForProcess")
     public static class RequestBufferForProcess extends MethodHook {

@@ -55,22 +55,6 @@ public class ILocationManagerProxy extends BinderInvocationStub {
         return super.invoke(proxy, method, args);
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new RegisterLocationListener());
-        addMethodHook(new RegisterGnssStatusCallback());
-        addMethodHook(new GetCurrentLocation());
-        addMethodHook(new GetLastLocation());
-        addMethodHook(new GetBestProvider());
-        addMethodHook(new GetLastKnownLocation());
-        addMethodHook(new RequestLocationUpdates());
-        addMethodHook(new RemoveUpdates());
-        addMethodHook(new GetProviderProperties());
-        addMethodHook(new RemoveGpsStatusListener());
-        addMethodHook(new GetAllProviders());
-        addMethodHook(new isProviderEnabledForUser());
-        addMethodHook(new setExtraLocationControllerPackageEnabled());
-    }
 
     @ProxyMethod("registerGnssStatusCallback")
     public static class RegisterGnssStatusCallback extends MethodHook {

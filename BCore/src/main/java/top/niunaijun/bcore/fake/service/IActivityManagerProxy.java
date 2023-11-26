@@ -93,29 +93,6 @@ public class IActivityManagerProxy extends ClassInvocationStub {
         addMethodHook(new PkgMethodProxy("getAppStartMode"));
         addMethodHook(new PkgMethodProxy("setAppLockedVerifying"));
         addMethodHook(new PkgMethodProxy("reportJunkFromApp"));
-        addMethodHook(new GetContentProvider());
-        addMethodHook(new StartService());
-        addMethodHook(new StopService());
-        addMethodHook(new StopServiceToken());
-        //addMethodHook(new BindService());
-        addMethodHook(new BindIsolatedService());
-        addMethodHook(new UnbindService());
-        addMethodHook(new GetRunningAppProcesses());
-        addMethodHook(new GetServices());
-        addMethodHook(new GetIntentSender());
-        addMethodHook(new GetPackageForIntentSender());
-        addMethodHook(new getUidForIntentSender());
-        addMethodHook(new BroadcastIntent());
-        addMethodHook(new PeekService());
-        addMethodHook(new RegisterReceiver());
-        addMethodHook(new GrantUriPermission());
-        addMethodHook(new SetServiceForeground());
-        addMethodHook(new GetHistoricalProcessExitReasons());
-        addMethodHook(new SendIntentSender());
-        addMethodHook(new GetCurrentUser());
-        addMethodHook(new CheckUriPermission());
-        addMethodHook(new CheckPermission());
-        addMethodHook(new SetTaskDescription());
     }
 
     @ProxyMethod("getContentProvider")

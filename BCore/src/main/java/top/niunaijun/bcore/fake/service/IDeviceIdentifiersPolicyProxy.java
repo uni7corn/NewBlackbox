@@ -35,7 +35,6 @@ public class IDeviceIdentifiersPolicyProxy extends BinderInvocationStub {
     @Override
     protected void onBindMethod() {
         addMethodHook(new PkgMethodProxy("getSerialForPackage"));
-        addMethodHook(new GetSerialForPackage());
     }
 
     @ProxyMethod("getSerialForPackage")

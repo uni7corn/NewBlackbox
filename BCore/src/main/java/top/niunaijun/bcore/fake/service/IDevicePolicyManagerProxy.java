@@ -33,14 +33,6 @@ public class IDevicePolicyManagerProxy extends BinderInvocationStub {
         return false;
     }
 
-    @Override
-    protected void onBindMethod() {
-        addMethodHook(new GetDeviceOwnerName());
-        addMethodHook(new GetStorageEncryptionStatus());
-        addMethodHook(new GetDeviceOwnerComponent());
-        addMethodHook(new GetProfileOwnerName());
-        addMethodHook(new IsDeviceProvisioned());
-    }
 
     @ProxyMethod("getStorageEncryptionStatus")
     public static class GetStorageEncryptionStatus extends MethodHook {
