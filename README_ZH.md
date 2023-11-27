@@ -18,7 +18,7 @@
 
 如果条件允许，降级targetSdkVersion到28或以下可以获得更好的兼容性。
 
-***稳定性未经大量测试，仅供学习交流，请勿用于其他用途***
+***稳定性未经大量测试，仅供学习交流，请勿用于其他用途，如有侵权请在项目issues上进行反馈，我会遵循侵权项目的开源协议进行删改***
 
 ## API
 - [BlackBoxCore](BlackBoxCore)
@@ -130,6 +130,7 @@
 * 调用content provider的getType崩溃
 * 静态广播测试失败
 * 多进程缺陷，初步怀疑新进程启动后，Activity中的原活动对应的pid未更新，导致出现新活动对应多进程。卡顿是由于初始化新进程导致的
+* ProviderHook不完善
 
 ## 赞助
 本项目为免费开源项目，日常维护耗费大量精力。如想加快进度或请作者喝杯咖啡。
@@ -138,7 +139,7 @@
 - USDT（ERC20）: 0xe3e80dba05ba5a06c0d2e0934783f6c711dfa2c9(当前维护项目者)
 
 ## 感谢
-- [VirtualApp](https://github.com/asLody/VirtualApp)
+- [VirtualApp](https://github.com/asLody/VirtualApp)(GPL-3.0)
 - [AndroidHiddenApiBypass](https://github.com/LSPosed/AndroidHiddenApiBypass)
 - [Pine](https://github.com/canyie/pine)
 

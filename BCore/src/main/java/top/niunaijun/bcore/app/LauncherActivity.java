@@ -1,15 +1,21 @@
 package top.niunaijun.bcore.app;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
+import java.util.List;
+
 import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.R;
+import top.niunaijun.bcore.core.system.user.BUserHandle;
+import top.niunaijun.bcore.fake.frameworks.BActivityManager;
 import top.niunaijun.bcore.utils.Slog;
 
 public class LauncherActivity extends Activity {
@@ -19,6 +25,7 @@ public class LauncherActivity extends Activity {
     public static final String KEY_PKG = "launch_pkg";
     public static final String KEY_USER_ID = "launch_user_id";
     private boolean isRunning = false;
+    private boolean UnRunning = false;
 
     public static void launch(Intent intent, int userId) {
         Intent splash = new Intent();
@@ -33,6 +40,7 @@ public class LauncherActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //这里解决多进程问题
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         if (intent == null) {
@@ -50,7 +58,6 @@ public class LauncherActivity extends Activity {
             finish();
             return;
         }
-
         Drawable drawable = packageInfo.applicationInfo.loadIcon(BlackBoxCore.getPackageManager());
         setContentView(R.layout.activity_launcher);
 

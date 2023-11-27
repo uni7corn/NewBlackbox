@@ -1,5 +1,7 @@
 package top.niunaijun.bcore.fake.service.context.providers;
 
+import android.os.Build;
+import android.os.Bundle;
 import android.os.IInterface;
 
 import java.lang.reflect.Method;
@@ -22,6 +24,17 @@ public class ContentProviderStub extends ClassInvocationStub implements BContent
         return (IInterface) getProxyInvocation();
     }
 
+    private Bundle wrapBundle(String name, String value) {
+        Bundle bundle = new Bundle();
+        if (Build.VERSION.SDK_INT >= 24) {
+            bundle.putString("name", name);
+            bundle.putString("value", value);
+        } else {
+            bundle.putString(name, value);
+        }
+        return bundle;
+    }
+
     @Override
     protected Object getWho() {
         return mBase;
@@ -35,11 +48,13 @@ public class ContentProviderStub extends ClassInvocationStub implements BContent
         if ("asBinder".equals(method.getName())) {
             return method.invoke(mBase, args);
         }
-
         if (args != null && args.length > 0) {
             Object arg = args[0];
             if (arg instanceof String) {
                 args[0] = mAppPkg;
+                if ("android_id".equals(arg)) {
+                    return wrapBundle("android_id", "");
+                }
             } else if (arg.getClass().getName().equals(AttributionSource.REF.getClazz().getName())) {
                 ContextCompat.fixAttributionSourceState(arg, BActivityThread.getBUid());
             }

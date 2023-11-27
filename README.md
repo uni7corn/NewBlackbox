@@ -128,7 +128,7 @@ This project is a free open source project, routine maintenance consumes a lot o
 - USDT（ERC20）: 0xe3e80dba05ba5a06c0d2e0934783f6c711dfa2c9(当前维护项目者)
 
 ## Credits
-- [VirtualApp](https://github.com/asLody/VirtualApp)
+- [VirtualApp](https://github.com/asLody/VirtualApp)(GPL-3.0)
 - [AndroidHiddenApiBypass](https://github.com/LSPosed/AndroidHiddenApiBypass)
 - [Pine](https://github.com/canyie/pine)
 

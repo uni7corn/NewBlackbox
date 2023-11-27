@@ -69,8 +69,7 @@ public class ContentProviderDelegate {
             String providerName = mNames[0];
             if (!sInjected.contains(providerName)) {
                 sInjected.add(providerName);
-
-                final IInterface iInterface = ActivityThread.ProviderClientRecordP.mProvider.get(value);
+                IInterface iInterface = ActivityThread.ProviderClientRecordP.mProvider.get(value);
                 ActivityThread.ProviderClientRecordP.mProvider.set(value, new ContentProviderStub().wrapper(iInterface, BlackBoxCore.getHostPkg()));
                 ActivityThread.ProviderClientRecordP.mNames.set(value, new String[]{providerName});
             }

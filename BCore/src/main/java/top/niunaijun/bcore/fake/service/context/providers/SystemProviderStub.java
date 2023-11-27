@@ -23,6 +23,7 @@ public class SystemProviderStub extends ClassInvocationStub implements BContentP
         return (IInterface) getProxyInvocation();
     }
 
+
     @Override
     protected Object getWho() {
         return mBase;
