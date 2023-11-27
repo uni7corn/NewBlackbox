@@ -592,4 +592,18 @@ public class IActivityManagerProxy extends ClassInvocationStub {
             return method.invoke(who, args);
         }
     }
+
+    @ProxyMethod("overridePendingTransition")
+    public static class OverridePendingTransition extends MethodHook {
+
+        @Override
+        protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            String packageName = (String) args[1];
+            if ("com.tencent.mm".equals(packageName)) {
+                return null;
+            }else{
+                return method.invoke(who, args);
+            }
+        }
+    }
 }

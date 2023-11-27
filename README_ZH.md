@@ -142,6 +142,7 @@
 - [VirtualApp](https://github.com/asLody/VirtualApp)(GPL-3.0)
 - [AndroidHiddenApiBypass](https://github.com/LSPosed/AndroidHiddenApiBypass)
 - [Pine](https://github.com/canyie/pine)
+- [VirtualXposed](https://github.com/android-hacker/VirtualXposed)
 
 ### License
 > ```
