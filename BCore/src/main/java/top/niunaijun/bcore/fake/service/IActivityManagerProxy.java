@@ -606,4 +606,49 @@ public class IActivityManagerProxy extends ClassInvocationStub {
             }
         }
     }
+
+    @ProxyMethod("setPackageAskScreenCompat")
+    public static class SetPackageAskScreenCompat extends MethodHook {
+
+        @Override
+        protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+                if (args.length > 0 && args[0] instanceof String) {
+                    args[0] = BlackBoxCore.getHostPkg();
+                }
+            }
+            return method.invoke(who,args);
+        }
+    }
+
+    @ProxyMethod("handleIncomingUser")
+    public static class HandleIncomingUser extends MethodHook {
+
+        @Override
+        protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            if (BlackBoxCore.get().isBlackProcess()){
+                int lastIndex = args.length - 1;
+                if (args[lastIndex] instanceof String) {
+                    args[lastIndex] = BlackBoxCore.getHostPkg();
+                }
+                return method.invoke(who, args);
+            }else{
+                return method.invoke(who, args);
+            }
+        }
+    }
+
+    @ProxyMethod("getPersistedUriPermissions")
+    public static class GetPersistedUriPermissions extends MethodHook {
+
+        @Override
+        protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            if (BlackBoxCore.get().isBlackProcess()){
+                MethodParameterUtils.replaceFirstAppPkg(args);
+                return method.invoke(who, args);
+            }else{
+                return method.invoke(who, args);
+            }
+        }
+    }
 }

@@ -4,7 +4,9 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.os.IBinder;
 
 import androidx.annotation.RequiresApi;
 
@@ -13,7 +15,9 @@ import java.util.List;
 
 import black.android.app.NotificationManager;
 import black.android.content.pm.ParceledListSlice;
+import top.niunaijun.bcore.BlackBoxCore;
 import top.niunaijun.bcore.app.BActivityThread;
+import top.niunaijun.bcore.fake.frameworks.BActivityManager;
 import top.niunaijun.bcore.fake.frameworks.BNotificationManager;
 import top.niunaijun.bcore.fake.hook.BinderInvocationStub;
 import top.niunaijun.bcore.fake.hook.MethodHook;
