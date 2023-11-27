@@ -179,4 +179,17 @@ public class INotificationManagerProxy extends BinderInvocationStub {
             return ParceledListSliceCompat.create(notificationChannelGroups);
         }
     }
+
+    @ProxyMethod("removeEdgeNotification")
+    public static class RemoveEdgeNotification extends MethodHook {
+
+        @Override
+        protected Object hook(Object who, Method method, Object[] args) throws Throwable {
+            if (BuildCompat.isSamsung()){
+                MethodParameterUtils.replaceFirstAppPkg(args);
+                return method.invoke(who,args);
+            }
+            return null;
+        }
+    }
 }
