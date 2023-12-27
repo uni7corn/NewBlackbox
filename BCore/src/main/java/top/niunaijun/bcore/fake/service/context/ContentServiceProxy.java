@@ -33,7 +33,7 @@ public class ContentServiceProxy extends BinderInvocationStub {
 
         @Override
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
-            return method.invoke(who, args);
+            return 0;
         }
     }
 
@@ -42,7 +42,7 @@ public class ContentServiceProxy extends BinderInvocationStub {
 
         @Override
         protected Object hook(Object who, Method method, Object[] args) throws Throwable {
-            return method.invoke(who, args);
+            return 0;
         }
     }
 }
