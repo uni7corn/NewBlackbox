@@ -19,6 +19,7 @@
 如果条件允许，降级targetSdkVersion到28或以下可以获得更好的兼容性。
 
 ***稳定性未经大量测试，仅供学习交流，请勿用于其他用途，如有侵权请在项目issues上进行反馈，我会遵循侵权项目的开源协议进行删改***
+***Google play上架请联系[me](https://t.me/fucki_box)
 
 ## API
 - [BlackBoxCore](BlackBoxCore)
