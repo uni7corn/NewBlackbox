@@ -1,13 +1,3 @@
-![xx](assets/banner.png)
-### [中文说明](README_ZH.md)
-
-# Virtual Engine · BlackBox
-> The only people who have anything to fear from free software are those whose products are worth even less. 
->
-> <p align="right">——David Emery</p>
-
-![](https://img.shields.io/badge/language-java-brightgreen.svg)
-
 BlackBox is a virtual engine, it can clone and run virtual application on Android, users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox.
 
 ## Discussion
@@ -20,18 +10,6 @@ If conditions permit, downgrade targetSdkVersion to 28 or below for better compa
 
 ***Stability has not been tested extensively and is for learning and communication purposes only. Please do not use for other purposes***
 
-## API
-- [BlackBoxCore](BlackBoxCore)
-- [BAccountManager](BAccountManager)
-- [BActivityManager](BActivityManager)
-- [BJobManager](BJobManager)
-- [BlackManager](BlackManager)
-- [BLocationManager](BLocationManager)
-- [BNotificationManager](BNotificationManager)
-- [BPackageManager](BPackageManager)
-- [BStorageManager](BStorageManager)
-- [BUserManager](BUserManager)
-- [BXposedManager](BXposedManager)
 
 ## Usage
 ### Step 1.Add initialized code in the Application
