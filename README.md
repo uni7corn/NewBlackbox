@@ -1,10 +1,11 @@
 BlackBox is a virtual engine, it can clone and run virtual application on Android, users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox.
 
-## Discussion
+## For More Information and help
+
 [Telegram](https://t.me/newblackboxa)
 
 ## Support
-Currently we don't consider supporting Android 4.x, it supports Android 5.0 ～ 14.0.
+Currently we don't consider supporting Android 5.0 ～ 14.0.
 
 If conditions permit, downgrade targetSdkVersion to 28 or below for better compatibility.
 
@@ -53,15 +54,6 @@ If conditions permit, downgrade targetSdkVersion to 28 or below for better compa
 ### App Cloner
 <img src="assets/multiw.gif" width="50%">
 
-### Fake Location
-Fake location base theory: forbid WPS(Wi-Fi Positioning System) and LBS(MPS), only provide modified GPS location server.
-
-### Fake Device Info
-Modify device info in source code, ui isn't available
-
-* Xiaomi device tested successfully.
-* Huawei device tested failed, it need to be enhanced.
-
 ### API
 #### Get application list that were installed in BlackBox
 ```java
@@ -77,9 +69,6 @@ Modify device info in source code, ui isn't available
 ```
 If you want to perform more operations, please refer to the source code.
 
-#### Xposed Support
-- BlackBox has supported Xposed Modules.
-- BlackBox has hidden Xposed Framework, [Xposed Checker](https://www.coolapk.com/apk/190247) and [XposedDetector](https://github.com/vvb2060/XposedDetector) can't detect it.
 
 ## How to contribute to this project 
 ### This project is divided into two modules
@@ -87,8 +76,9 @@ If you want to perform more operations, please refer to the source code.
 - BCore module, this module is the core of BlackBox, it is used to achieve all functionalities.
 
 You can contribute to this project by making pull requests.
+
 ### About pull requests
-1. Both Chinese and English commit message/comment are ok, but you should elaborate on your code.
+1. use only english commit message/comment , but you should elaborate on your code.
 2. Please follow the code style and design pattern of this project.
 3. Welcome everybody take part in this project.
 
@@ -102,8 +92,8 @@ You can contribute to this project by making pull requests.
 ## Sponsorship
 This project is a free open source project, routine maintenance consumes a lot of time and effort. If you want to speed up the progress or buy the author a cup of coffee.
 
-- BTC: 1HhctWiQ6dBQomKPJjty3P1wL9CuK9eCqM
-- USDT（ERC20）: 0x408336bcaef0c5eb11772024a06079ab2e14e6cd
+- BTC: 14z658gFXzNTbGEXySNJLGxwHfJmMViRaB
+- USDT（TRC20）: TFNQw5HgWUS33Ke1eNmSFTwoQySGU7XNsK
 
 ## Credits
 - [VirtualApp](https://github.com/asLody/VirtualApp)
@@ -112,7 +102,7 @@ This project is a free open source project, routine maintenance consumes a lot o
 
 ### License
 > ```
-> Copyright 2022 BlackBox
+> Copyright 2022 NewBlackbox
 >
 > Licensed under the Apache License, Version 2.0 (the "License");
 > you may not use this file except in compliance with the License.
