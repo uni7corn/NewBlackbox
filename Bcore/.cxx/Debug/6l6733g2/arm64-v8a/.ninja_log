@@ -1,0 +1,24 @@
+# ninja log v5
+223	4976	1708612487380621503	CMakeFiles/blackbox.dir/IO.cpp.o	73b49708fa25a4f2
+2428	6310	1708612488722648048	CMakeFiles/blackbox.dir/Hook/SystemPropertiesHook.cpp.o	897fcb6cff707f01
+6310	7777	1708612490181676906	/home/alex/Documents/GitHub/blackboxtest/Bcore/build/intermediates/cxx/Debug/6l6733g2/obj/arm64-v8a/libblackbox.so	d3e75f9540a85cd3
+228	2427	1708612484800570466	CMakeFiles/blackbox.dir/Hook/BaseHook.cpp.o	ec8b864387bae486
+3018	4704	1708612487118616321	CMakeFiles/blackbox.dir/Hook/UnixFileSystemHook.cpp.o	8035b20276a1a9f3
+4704	5048	1708612487476623402	CMakeFiles/blackbox.dir/JniHook/JniHook.cpp.o	2f8dd229854ef20a
+223	4769	1708612487172617389	CMakeFiles/blackbox.dir/BoxCore.cpp.o	6c6d8416ef463db8
+220	3018	1708612485440583127	CMakeFiles/blackbox.dir/Hook/RuntimeHook.cpp.o	928de54741cf188c
+233	4818	1708612487224618418	CMakeFiles/blackbox.dir/Hook/LinuxHook.cpp.o	210ba0798d98dcea
+0	25	0	clean	4e4d3a5f59461dad
+4313	4798	1708612487214618220	CMakeFiles/blackbox.dir/Hook/VMClassLoaderHook.cpp.o	1a93ec851d28e6e1
+231	4313	1708612486740608843	CMakeFiles/blackbox.dir/Hook/BinderHook.cpp.o	b84c517113667a21
+219	2883	1708613008406831373	CMakeFiles/blackbox.dir/Hook/BaseHook.cpp.o	916614f0985661cd
+212	2990	1708613008624835617	CMakeFiles/blackbox.dir/Hook/RuntimeHook.cpp.o	3a2513e2aa7268f9
+220	5212	1708613010848878904	CMakeFiles/blackbox.dir/Hook/BinderHook.cpp.o	5b5dfe54ef202b1a
+218	5479	1708613011108883964	CMakeFiles/blackbox.dir/BoxCore.cpp.o	7b44c64a34269754
+2990	5512	1708613011134884471	CMakeFiles/blackbox.dir/Hook/UnixFileSystemHook.cpp.o	8f56c4b7ca0b6b46
+219	5523	1708613011154884860	CMakeFiles/blackbox.dir/IO.cpp.o	229d6232983fc916
+5212	5544	1708613011178885327	CMakeFiles/blackbox.dir/Hook/VMClassLoaderHook.cpp.o	d1cfa649dcb730dc
+222	5553	1708613011166885093	CMakeFiles/blackbox.dir/Hook/LinuxHook.cpp.o	1441a373ffc26262
+5479	5610	1708613011253886787	CMakeFiles/blackbox.dir/JniHook/JniHook.cpp.o	4d097f214683f7f
+2883	5993	1708613011628894085	CMakeFiles/blackbox.dir/Hook/SystemPropertiesHook.cpp.o	6eae96e0a131608a
+5994	9452	1708613013078922306	/home/alex/Documents/GitHub/blackboxtest/Bcore/build/intermediates/cxx/Debug/6l6733g2/obj/arm64-v8a/libblackbox.so	7906afbd59a7f7aa
