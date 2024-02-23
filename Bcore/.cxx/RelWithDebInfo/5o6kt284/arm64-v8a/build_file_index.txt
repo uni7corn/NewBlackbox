@@ -1,1 +1,0 @@
-/home/alex/AndroidStudioProjects/NewBlackbox/Bcore/src/main/cpp/CMakeLists.txt

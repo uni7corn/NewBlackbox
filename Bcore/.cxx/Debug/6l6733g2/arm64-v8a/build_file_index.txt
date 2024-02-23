@@ -1,1 +1,0 @@
-/home/alex/Documents/GitHub/blackboxtest/Bcore/src/main/cpp/CMakeLists.txt

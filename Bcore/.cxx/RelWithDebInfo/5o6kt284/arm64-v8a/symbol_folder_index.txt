@@ -1,1 +1,0 @@
-/home/alex/AndroidStudioProjects/NewBlackbox/Bcore/build/intermediates/cxx/RelWithDebInfo/5o6kt284/obj/arm64-v8a

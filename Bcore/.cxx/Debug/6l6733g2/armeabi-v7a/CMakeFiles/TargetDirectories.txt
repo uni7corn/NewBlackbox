@@ -1,3 +1,0 @@
-/home/alex/Documents/GitHub/blackboxtest/Bcore/.cxx/Debug/6l6733g2/armeabi-v7a/CMakeFiles/blackbox.dir
-/home/alex/Documents/GitHub/blackboxtest/Bcore/.cxx/Debug/6l6733g2/armeabi-v7a/CMakeFiles/edit_cache.dir
-/home/alex/Documents/GitHub/blackboxtest/Bcore/.cxx/Debug/6l6733g2/armeabi-v7a/CMakeFiles/rebuild_cache.dir
