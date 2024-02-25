@@ -70,12 +70,35 @@ If conditions permit, downgrade targetSdkVersion to 28 or below for better compa
 If you want to perform more operations, please refer to the source code.
 
 
-## How to contribute to this project 
-### This project is divided into two modules
-- app module, it is used to achieve UI and deal with user action.
-- BCore module, this module is the core of BlackBox, it is used to achieve all functionalities.
+## 🤝 Contributing
 
-You can contribute to this project by making pull requests.
+Embark on the journey of contributing to SketchIDE and be a part of shaping the future of non-coding Android app development.
+
+1. **Fork:** Begin by forking this repository.
+2. **Make Changes:** Implement your enhancements in your forked repository.
+3. **Test:** Ensure your changes work flawlessly.
+4. **Pull Request:** Submit a pull request in this repository.
+5. **Review & Merge:** Your contribution will be reviewed and merged if accepted by the repository members.
+
+
+### Commit Message Guidelines
+
+When making changes, please adhere to the following commit message guidelines:
+
+- Use only English for the commit
+- Keep the commit message short and detailed.
+- Use one of these commit types as a prefix:
+    - `feat:` for a feature, possibly improving something already existing.
+    - `fix:` for a bug fix.
+    - `design:` for UI/UX improvements.
+    - `refactor:` for refactoring a specific section of the codebase.
+    - `test:` for everything related to testing.
+    - `docs:` for documentation updates.
+
+Examples:
+- `feat: Speed up compiling with new technique`
+- `fix: Fix crash during launch on certain phones`
+- `design: Update Design something related UI`
 
 ### About pull requests
 1. use only english commit message/comment , but you should elaborate on your code.
