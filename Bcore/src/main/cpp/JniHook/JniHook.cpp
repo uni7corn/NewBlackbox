@@ -1,8 +1,12 @@
 #include <jni.h>
 #include <cstring>
+#define JNIHOOKCLASS "com/vcore/jnihook/JniHook"
+#define JNIMETHOOG_Utills "com/vcore/jnihook/MethodUtils"
 #include "JniHook.h"
 #include "Log.h"
 #include "ArtMethod.h"
+
+
 
 static struct {
     int api_level;
@@ -182,7 +186,7 @@ __attribute__((section (".mytext")))  JNICALL void set_field_accessible(JNIEnv *
 }
 
 void registerNative(JNIEnv *env) {
-    jclass clazz = env->FindClass("top/niunaijun/jnihook/JniHook");
+    jclass clazz = env->FindClass(JNIHOOKCLASS);
     JNINativeMethod gMethods[] = {
             {"nativeOffset", "()V", (void *) native_offset},
             {"nativeOffset2", "()V", (void *) native_offset2},
@@ -197,7 +201,7 @@ void JniHook::InitJniHook(JNIEnv *env, int api_level) {
     registerNative(env);
     HookEnv.api_level = api_level;
 
-    jclass clazz = env->FindClass("top/niunaijun/jnihook/JniHook");
+    jclass clazz = env->FindClass(JNIHOOKCLASS);
     jmethodID nativeOffsetId = env->GetStaticMethodID(clazz, "nativeOffset", "()V");
     jmethodID nativeOffset2Id = env->GetStaticMethodID(clazz, "nativeOffset2", "()V");
 
@@ -256,7 +260,7 @@ void JniHook::InitJniHook(JNIEnv *env, int api_level) {
         }
     }
 
-    HookEnv.method_utils_class = env->FindClass("top/niunaijun/jnihook/MethodUtils");
+    HookEnv.method_utils_class = env->FindClass(JNIMETHOOG_Utills);
     HookEnv.get_method_desc_id = env->GetStaticMethodID(HookEnv.method_utils_class, "getDesc", "(Ljava/lang/reflect/Method;)Ljava/lang/String;");
     HookEnv.get_method_declaring_class_id = env->GetStaticMethodID(HookEnv.method_utils_class, "getDeclaringClass", "(Ljava/lang/reflect/Method;)Ljava/lang/String;");
     HookEnv.get_method_name_id = env->GetStaticMethodID(HookEnv.method_utils_class, "getMethodName", "(Ljava/lang/reflect/Method;)Ljava/lang/String;");

@@ -1,3 +1,4 @@
+#define CORE_CLASS "com/vcore/core/NativeCore"
 #include "BoxCore.h"
 #include "Log.h"
 #include "IO.h"
@@ -9,6 +10,8 @@
 #include "Hook/SystemPropertiesHook.h"
 #include "Hook/BinderHook.h"
 #include "Hook/RuntimeHook.h"
+
+
 
 struct {
     JavaVM *vm;
@@ -63,7 +66,7 @@ void nativeHook(JNIEnv *env) {
     VMClassLoaderHook::init(env);
 
     // SystemPropertiesHook会引起小米k40，安卓11上的抖音崩溃
-    // SystemPropertiesHook::init(env);
+   // SystemPropertiesHook::init(env);
     RuntimeHook::init(env);
     BinderHook::init(env);
 }
@@ -76,7 +79,7 @@ void hideXposed(JNIEnv *env, jclass clazz) {
 void init(JNIEnv *env, jobject clazz, jint api_level) {
     ALOGD("NativeCore init.");
     VMEnv.api_level = api_level;
-    VMEnv.NativeCoreClass = (jclass) env->NewGlobalRef(env->FindClass(NATIVECORE_CLASS));
+    VMEnv.NativeCoreClass = (jclass) env->NewGlobalRef(env->FindClass(CORE_CLASS));
     VMEnv.getCallingUidId = env->GetStaticMethodID(VMEnv.NativeCoreClass, "getCallingUid", "(I)I");
     VMEnv.redirectPathString = env->GetStaticMethodID(VMEnv.NativeCoreClass, "redirectPath", "(Ljava/lang/String;)Ljava/lang/String;");
     VMEnv.redirectPathFile = env->GetStaticMethodID(VMEnv.NativeCoreClass, "redirectPath", "(Ljava/io/File;)Ljava/io/File;");
@@ -119,7 +122,7 @@ int registerNativeMethods(JNIEnv *env, const char *className,JNINativeMethod *gM
 }
 
 int registerNatives(JNIEnv *env) {
-    if (!registerNativeMethods(env, NATIVECORE_CLASS, gMethods, sizeof(gMethods) / sizeof(gMethods[0]))) {
+    if (!registerNativeMethods(env, CORE_CLASS, gMethods, sizeof(gMethods) / sizeof(gMethods[0]))) {
         return JNI_FALSE;
     }
     return JNI_TRUE;

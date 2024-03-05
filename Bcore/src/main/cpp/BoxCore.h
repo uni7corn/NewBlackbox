@@ -4,7 +4,6 @@
 #include <jni.h>
 #include <unistd.h>
 
-#define NATIVECORE_CLASS "top/niunaijun/bcore/core/NativeCore"
 
 class BoxCore {
 public:

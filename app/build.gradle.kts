@@ -4,9 +4,17 @@ plugins {
 }
 
 android {
-
+    signingConfigs.create("vcore")
+    signingConfigs {
+        getByName("vcore") {
+            storeFile = file("vcore.jks")
+            storePassword = "234y7229ujd2yr23r"
+            keyAlias = "vcore"
+            keyPassword = "234y7229ujd2yr23r"
+        }
+    }
     ndkVersion = (rootProject.ext["ndkVersion"] as String)
-    namespace = (rootProject.ext["appid"] as String)
+    namespace = (rootProject.ext["packagename"] as String)
     compileSdk = (rootProject.ext["compileSdk"] as Int)
     defaultConfig {
         javaCompileOptions {
@@ -15,7 +23,7 @@ android {
             }
         }
 
-        applicationId = "top.niunaijun.blackbox"
+        applicationId = (rootProject.ext["appid"] as String)
         minSdk = (rootProject.ext["minSdk"] as Int)
         //noinspection ExpiredTargetSdkVersion
         targetSdk = (rootProject.ext["targetSdk"] as Int)
@@ -28,8 +36,16 @@ android {
     }
     buildTypes {
         release {
-            resValue ("string", "app_name", "BOX-alpha")
-            isMinifyEnabled = false
+            signingConfigs.apply {
+                signingConfigs.getByName("vcore"){
+                    enableV1Signing = true
+                    enableV2Signing = true
+                    enableV3Signing = true
+                    enableV4Signing = true
+                }
+            }
+            resValue ("string", "app_name", "Vspace-alpha")
+            isMinifyEnabled = false // not tested yet
             isJniDebuggable = false
             isDebuggable = false
             proguardFiles(
@@ -38,9 +54,15 @@ android {
             )
         }
         debug {
+            signingConfigs.getByName("debug"){
+               enableV1Signing = true
+               enableV2Signing = true
+               enableV3Signing = true
+               enableV4Signing = true
+            }
             isJniDebuggable = true
             isDebuggable = true
-            resValue ("string", "app_name", "BOX-debug")
+            resValue ("string", "app_name", "Vspace-d")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -51,11 +73,11 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures{
         buildConfig = true

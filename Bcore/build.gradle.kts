@@ -4,7 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "top.niunaijun.bcore"
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("/home/alex/Documents/GitHub/blackboxtest/app/vcore.jks")
+            storePassword = "234y7229ujd2yr23r"
+            keyPassword = "234y7229ujd2yr23r"
+            keyAlias = "vcore"
+        }
+    }
+    namespace = "com.vcore"
     compileSdk = (rootProject.ext["compileSdk"] as Int)
 
 
@@ -19,6 +27,7 @@ android {
             abiFilters.add("armeabi-v7a")
             abiFilters.add("arm64-v8a")
         }
+     //   signingConfig = signingConfigs.getByName("debug")
 
     }
     val cmake = rootProject.ext["cmakeVersion"] as String
@@ -31,6 +40,13 @@ android {
 
     buildTypes {
         release {
+            isMinifyEnabled = false  //not tested yet
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -39,11 +55,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures{
         aidl = true

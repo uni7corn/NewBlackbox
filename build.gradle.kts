@@ -13,22 +13,23 @@ ext.apply {
     set("googlematerial", "1.11.0") // com.google.android.material:material:
 
     // set properties for app only
-    set("appid", "top.niunaijun.blackbox")
-    set("appversion", "3.0.0-alpha")
+    set("appid", "com.vspace") // appid
+    set("packagename", "com.vspace") // main packagename
+    set("appversion", "3.0.1-alpha")
     set("versioncode", 3)
 
 }
 
 buildscript {
     dependencies {
-        classpath("com.android.tools.build:gradle:8.2.2")
+        classpath("com.android.tools.build:gradle:8.3.0")
     }
 }
 
 plugins {
-    id("com.android.application") version "8.2.2" apply false
+    id("com.android.application") version "8.3.0" apply false
     id("org.jetbrains.kotlin.android") version "1.9.22" apply false
-    id("com.android.library") version "8.2.2" apply false
+    id("com.android.library") version "8.3.0" apply false
 }
 
 tasks.register<Delete>("clean") { delete(rootProject.layout.buildDirectory) }
