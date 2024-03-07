@@ -5,7 +5,7 @@ BlackBox is a virtual engine, it can clone and run virtual application on Androi
 [Telegram](https://t.me/newblackboxa)
 
 ## Support
-Currently we don't consider supporting Android 5.0 ～ 14.0.
+Currently it support android version 5.0 ～ 14.0.
 
 If conditions permit, downgrade targetSdkVersion to 28 or below for better compatibility.
 
